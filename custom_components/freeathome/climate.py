@@ -109,6 +109,11 @@ class FreeAtHomeThermostat(ClimateEntity):
         return float(self.thermostat_device.current_temperature)
 
     @property
+    def current_humidity(self):
+        """Return the current temperature."""
+        return int(self.thermostat_device.current_humidity)
+
+    @property
     def temperature_correction(self):
         """Return the current temperature_correction."""
         if self.thermostat_device.temperature_correction is None:
