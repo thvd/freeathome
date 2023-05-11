@@ -4,7 +4,7 @@
 Free@Home component for Home Assistant
 
 This is a component for Free @ Home from Busch-Jaeger.
-Lights, scenes, covers, binary sensors, climate devices and the sensors of the weather station wil show up in Home Assistant. 
+Lights, light groups, scenes, covers, binary sensors, climate devices and the sensors of the weather station wil show up in Home Assistant. 
 
 ## Installation
 
@@ -19,6 +19,11 @@ Free@home now appears as an integration in Home Assistant.
 
 ### HACS
 Install this component in HACS by adding it as a custom repository of the type integration.
+
+### Youtube
+This is a German tutorial about using Home Assistant for integrating Free@Home and Apple Homekit/Siri. 
+It shows how to install Home Assistant and this integration on a Raspberry Pi. 
+https://youtu.be/9xfUhRiwK_s
 
 ## Configuration
 
