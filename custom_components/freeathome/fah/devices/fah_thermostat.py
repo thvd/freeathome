@@ -11,6 +11,7 @@ from ..const import (
         PID_CONTROLLER_ON_OFF,
         PID_STATUS_INDICATION,
         PID_MEASURED_TEMPERATURE,
+        PID_MEASURED_HUMIDITY,
         PID_HEATING_DEMAND,
         PARAM_TEMPERATURE_CORRECTION,
     )
@@ -20,6 +21,7 @@ LOG = logging.getLogger(__name__)
 class FahThermostat(FahDevice):
     """Free@Home thermostat """
     current_temperature = None
+    current_humidity = None
     current_actuator = None
     target_temperature = None
     temperature_correction = None
@@ -37,6 +39,7 @@ class FahThermostat(FahDevice):
                         PID_CONTROLLER_ON_OFF,
                         PID_STATUS_INDICATION,
                         PID_MEASURED_TEMPERATURE,
+                        PID_MEASURED_HUMIDITY,
                         PID_HEATING_DEMAND,
                         ]
                     }
@@ -101,6 +104,10 @@ class FahThermostat(FahDevice):
         elif self._datapoints.get(PID_MEASURED_TEMPERATURE) == dp:
             self.current_temperature = value
             LOG.info("thermostat %s (%s) dp %s current temperature %s", self.name, self.lookup_key, dp, value)
+
+        elif self._datapoints.get(PID_MEASURED_HUMIDITY) == dp:
+            self.current_humidity = value
+            LOG.info("thermostat %s (%s) dp %s current humidity %s", self.name, self.lookup_key, dp, value)
 
         elif self._datapoints.get(PID_HEATING_DEMAND) == dp:
             self.current_actuator = value
